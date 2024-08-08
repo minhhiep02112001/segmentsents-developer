@@ -1,0 +1,26 @@
+{
+    "name": "segmentsents/developer",
+    "description": "Lua segments",
+    "autoload": {
+        "psr-4": {
+            "Segmentsents\\Developer\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Microservices\\MicroservicesServiceProvider"
+            ],
+            "aliases": {
+                "Microservices": "Microservices\\Facade\\Microservices"
+            }
+        }
+    },
+    "authors": [
+        {
+            "name": "hiepcm"
+        }
+    ],
+    "require": {}
+}
+ 
