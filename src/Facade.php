@@ -1,6 +1,6 @@
 <?php
 
-namespace Widgets;
+namespace Segmentsents\Developer;
 
 class Facade extends \Illuminate\Support\Facades\Facade
 {

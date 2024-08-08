@@ -1,9 +1,9 @@
 <?php
-namespace YourNamespace\SegmentManager\Controllers;
+namespace Segmentsents\Developer\Controllers;
 
 use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
-use YourNamespace\SegmentManager\Models\Segment;
+use Segmentsents\Developer\Models\Segment;
 
 class SegmentController extends Controller
 {
