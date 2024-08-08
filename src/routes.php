@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use YourNamespace\SegmentManager\Controllers\SegmentController;
+use Segmentsents\Developer\Controllers\SegmentController;
 
 Route::group(['prefix' => \Config::get('route.prefix', '') . 'segments', 'as' => \Config::get('route.as', '')  ], function () {
     Route::get('/', [SegmentController::class, 'index']);

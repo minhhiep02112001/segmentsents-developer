@@ -1,6 +1,5 @@
-<?php
-// Trong src/SegmentManagerServiceProvider.php
-namespace YourNamespace\SegmentManager;
+<?php 
+namespace Segmentsents\Developer;
 
 use Illuminate\Support\ServiceProvider;
 

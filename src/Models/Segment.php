@@ -1,6 +1,6 @@
 <?php
 
-namespace Models;
+namespace Segmentsents\Developer\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Microservices\models\BaseModel;

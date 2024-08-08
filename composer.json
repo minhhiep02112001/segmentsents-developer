@@ -9,7 +9,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Segmentsents\\Developer\\SegmentsentsServiceProvider"
+                "Segmentsents\\Developer\\SegmentManagerServiceProvider"
             ] 
         }
     },
