@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace Segmentsents\Developer;
 
 use Illuminate\Support\ServiceProvider;
@@ -15,10 +16,7 @@ class SegmentManagerServiceProvider extends ServiceProvider
             __DIR__ . '/config/segment_manager.php' => config_path('segment_manager.php'),
         ], 'config');
 
-        $this->mergeConfigFrom(
-            __DIR__ . '/config/segment_manager.php',
-            'segment_manager'
-        );
+        $this->mergeConfigFrom(__DIR__ . '/config/segment_manager.php', 'segment_manager');
 
         if (config('segmentmanager.load_views', true)) {
             $this->loadViewsFrom(__DIR__ . '/../resources/views', 'segments');
