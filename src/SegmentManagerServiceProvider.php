@@ -12,11 +12,11 @@ class SegmentManagerServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
 
         $this->publishes([
-            __DIR__ . '/../config/segment_manager.php' => config_path('segment_manager.php'),
+            __DIR__ . '/config/segment_manager.php' => config_path('segment_manager.php'),
         ], 'config');
 
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/segment_manager.php',
+            __DIR__ . '/config/segment_manager.php',
             'segment_manager'
         );
 
