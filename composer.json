@@ -9,11 +9,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Microservices\\MicroservicesServiceProvider"
-            ],
-            "aliases": {
-                "Microservices": "Microservices\\Facade\\Microservices"
-            }
+                "Segmentsents\\Developer\\SegmentsentsServiceProvider"
+            ] 
         }
     },
     "authors": [
