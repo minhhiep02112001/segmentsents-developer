@@ -6,7 +6,7 @@ Route::group(['middleware' => ['auth:web', "keycloak-web-can"], 'prefix' => \Con
     Route::resource('segments', SegmentController::class);
 });
 
-Route::group(['prefix' => '', 'as' => 'api.', 'middleware' => 'App\Http\Middleware\Oauth2'], function () {
+Route::group(['prefix' => 'api', 'as' => 'api.', 'middleware' => 'App\Http\Middleware\Oauth2'], function () {
     Route::apiResource('segments', SegmentController::class);
     Route::get('segments/search', [SegmentController::class, 'search']);
 });
