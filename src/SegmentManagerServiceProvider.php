@@ -18,12 +18,14 @@ class SegmentManagerServiceProvider extends ServiceProvider
 
         $this->mergeConfigFrom(__DIR__ . '/config/segment_manager.php', 'segment_manager');
 
+         
         if (config('segmentmanager.load_views', true)) {
-            $this->loadViewsFrom(__DIR__ . '/../resources/views', 'segments');
+            // Đăng ký đường dẫn view với Laravel
+            $this->loadViewsFrom(__DIR__ . '/resources/views', 'segments'); 
         }
 
-        if (config('segmentmanager.override_views', true)) {
-            $this->publishes([__DIR__ . '/views' => resource_path('views/vendor/segments')], 'views');
-        }
+        // if (config('segmentmanager.override_views', true)) {
+        //     $this->publishes([__DIR__ . '/views' => resource_path('views/vendor/segments')], 'views');
+        // }
     }
 }

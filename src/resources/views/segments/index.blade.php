@@ -69,5 +69,5 @@
     </div>
 @stop
 @section('left-slidebar')
-    @include('segments.section.filter')
+    @include('segments::segments.filter')
 @endsection
