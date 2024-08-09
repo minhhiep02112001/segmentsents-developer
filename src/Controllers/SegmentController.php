@@ -25,7 +25,7 @@ class SegmentController extends Controller
             'pagination' => ($collection instanceof \Illuminate\Pagination\Paginator) ? $collection->setPath(\URL::current())->appends($input)->links() : '',
             'filter' => $filterParams,
         ];
-        return view('segments.index', $data);
+        return view('segments::segments.index', $data);
     }
 
     /**
@@ -42,7 +42,7 @@ class SegmentController extends Controller
             'filter' => json_encode($input['data']??[]),
             'url' =>$input['url'],
         ];
-        return view('segments.form', $data);
+        return view('segments::segments.form', $data);
     }
 
     /**
@@ -92,7 +92,7 @@ class SegmentController extends Controller
         $data = [
             'row' => $row,
         ];
-        return view('segments.show', $data);
+        return view('segments::segments.show', $data);
     }
 
     /**
@@ -110,7 +110,7 @@ class SegmentController extends Controller
             'action' => route(\Config::get('route.as').'segments.update',[$id]),
             'method' => 'PUT'
         ];
-        return view('segments.form', $data);
+        return view('segments::segments.form', $data);
     }
 
     /**

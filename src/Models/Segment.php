@@ -19,7 +19,7 @@ class Segment extends BaseModel
 
     public function __construct(array $attributes = [])
     {
-        parent::__construct($attributes);
+        // parent::__construct($attributes);
         $this->table = config('segmentmanager.table_name', $this->table);
     }
 }

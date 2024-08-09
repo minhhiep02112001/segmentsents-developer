@@ -1,8 +1,8 @@
 @php
     $route = \Route::current();
     $routeName = $route->getName();
-@endphp
-@extends(config('segmentmanager.master_layout'))
+@endphp 
+@extends(config('segment_manager.master_layout'))
 @section('content')
     @include('common.content_header', ['name' => 'Danh sách Segments'])
     <!-- page content -->
