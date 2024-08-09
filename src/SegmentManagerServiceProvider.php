@@ -2,15 +2,18 @@
 
 namespace Segmentsents\Developer;
 
-use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\ServiceProvider; 
 class SegmentManagerServiceProvider extends ServiceProvider
 {
-    public function register() {}
+    public function register() {
+        $this->app->bind('segment', function($app) {
+            return new \Segmentsents\Developer\Models\Segment; 
+        });
+    }
 
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__ . '/routes.php');
+        $this->loadRoutesFrom(__DIR__ . '/routes/web.php'); 
 
         $this->publishes([
             __DIR__ . '/config/segment_manager.php' => config_path('segment_manager.php'),
