@@ -32,7 +32,7 @@ class Filter extends AbstractWidget
 
         return view('segments::widgets.segment.filter', [
             'segments' => $data_segments,
-            'routeName' =>  $config['route_name'] ?? '',
+            'route_name' =>  $config['route_name'] ?? '',
             'filter' => $filter,
             'type' =>  $config['type'] ?? '-1',
         ]);
