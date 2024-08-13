@@ -23,45 +23,18 @@ class Filter extends AbstractWidget
      */
     public function run()
     {
-        $config = Arr::only($this->config, ['filter']);
+        $config = Arr::only($this->config, ['filter', 'route_name', 'type']);
 
         $filter = $config['filter'] ?? [];
-        $route = \Route::current();
-        $routeName = $route->getName();
 
-        switch ($routeName) {
-            case 'edu.student.index':
-                $segmentType = 'student';
-                break;
-            case 'edu.student.pause.index':
-                $segmentType = 'student_pause';
-                break;
-            case 'edu.student.wait_class':
-                $segmentType = 'student_wait_class';
-                break;
-            case 'edu.class.waiting_qualified':
-                $segmentType = 'class_waiting_qualified';
-                break;
-            case 'edu.class.waiting_unqualified':
-                $segmentType = 'class_waiting_unqualified';
-                break;
-            case 'edu.class.index':
-                $segmentType = 'classes';
-                break;
-
-            default:
-                $segmentType = '';
-                # code...
-                break;
-        }
         $segmentModel = app('segment');
-        $data_segments = $segmentModel->all(['type' => $segmentType, 'created_by' => Auth::id()],  ['limit' => 300]); 
+        $data_segments = $segmentModel->all(['type' => $config['type'] ?? '-1', 'created_by' => Auth::id()],  ['limit' => 300]);
 
-        return view('widgets.segment.filter', [
+        return view('segments::widgets.segment.filter', [
             'segments' => $data_segments,
-            'routeName' => $routeName,
+            'routeName' =>  $config['route_name'] ?? '',
             'filter' => $filter,
-            'type' => $segmentType,
+            'type' =>  $config['type'] ?? '-1',
         ]);
     }
 }

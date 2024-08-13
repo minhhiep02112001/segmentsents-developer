@@ -21,16 +21,18 @@ class Index extends AbstractWidget
      */
     public function run()
     {
-        // $config = Arr::only($this->config, ['type', 'user_id']);
-        // $type = $config['type'];
-        // $user_id = \Auth::id(); //(int)$config['user_id'];
-        // $segmentModel = app('segment');
+        $config = Arr::only($this->config, [ 'route_name', 'type']);
 
-        // $segments = $segmentModel->all(['type' => $type, 'created_by' => $user_id]);
+        $filter = $config['filter'] ?? [];
+        $user_id = \Auth::id();
+        $segmentModel = app('segment');
+        $data_segments = $segmentModel->all(['type' => $config['type'] ?? '-1', 'created_by' => $user_id],  ['limit' => 300]);
 
-        // return view('widgets.segment.index', [
-        //     'segments' => $segments,
-        //     'type' => $type,
-        // ]);
+        return view('segments::widgets.segment.index', [
+            'segments' => $data_segments,
+            'route_name' =>  $config['route_name'] ?? '',
+            'filter' => $filter,
+            'type' =>  $config['type'] ?? '-1',
+        ]);
     }
 }

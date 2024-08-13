@@ -1,4 +1,4 @@
-<div class="sidebar-section-body"> 
+<div class="sidebar-section-body">
     @if ($segments->count() > 0)
         <div class="form-group">
             <label class="control-label" for="name">Lọc theo Segment</label>
@@ -6,8 +6,14 @@
                 data-placeholder="Chọn Segment" onchange="location=this.value;">
                 <option value="">Chọn Segment</option>
                 @foreach ($segments as $segment)
-                    <option
-                        value="{{ route($routeName, ['filter' => json_decode(json_decode($segment['data'])->filter, true) ?? '']) }}">
+                    @php
+                        $url = !empty($route_name)
+                            ? route(\Config::get('route.as') . $route_name, [
+                                'filter' => json_decode(json_decode($segment['data'])->filter, true) ?? '',
+                            ])
+                            : '/';
+                    @endphp
+                    <option value="{{ $url }}">
                         {{ $segment['name'] ?? '' }}</option>
                 @endforeach
 
