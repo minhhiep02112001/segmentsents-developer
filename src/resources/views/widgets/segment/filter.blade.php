@@ -20,10 +20,7 @@
                             ];
 
                             // Kiểm tra nếu pattern có chứa '{type}'
-                            if (strpos($urlPattern, '{type}') !== false) {
-                                // Thêm 'type' vào tham số nếu cần
-                                $routeParams['type'] = $currentRoute->parameter('type') ?? ($type ?? '');
-                            }
+                            $routeParams['type'] = $currentRoute->parameter('type') ?? ($type ?? '');
                             if (
                                 strpos($urlPattern, '{created_type}') !== false &&
                                 strpos($urlPattern, '{filter_type}') !== false
