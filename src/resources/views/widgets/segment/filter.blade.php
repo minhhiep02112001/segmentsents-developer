@@ -29,6 +29,10 @@
                                 $routeParams['created_type'] = $currentRoute->parameter('created_type') ?? '';
                                 $routeParams['filter_type'] = $currentRoute->parameter('filter_type') ?? '';
                             }
+                            if (strpos($urlPattern, '{campaign_id}') !== false) {
+                                // Thêm 'campaign_id' vào tham số nếu có trong route
+                                $routeParams['campaign_id'] = $currentRoute->parameter('campaign_id') ?? '';
+                            }
                             $url = route(\Config::get('route.as') . $route_name, $routeParams);
                         } 
                     @endphp
